@@ -13,13 +13,6 @@
       </q-card>
     </q-header>
     <MenuDrawer/>
-
-    <q-dialog v-model="loginModel">
-      <LoginForm></LoginForm>
-    </q-dialog>
-    <q-dialog v-model="registerModel">
-      <RegisterForm/>
-    </q-dialog>
     <q-page-container>
       <router-view>
       </router-view>
@@ -30,24 +23,17 @@
 <script>
 import { ref, provide } from "vue";
 import { useQuasar } from "quasar";
-import LoginForm from "./components/LoginForm.vue";
-import {useUserStore} from "./store/index"
-import RegisterForm from "./components/RegisterForm.vue"
-import {User} from "./store/index"
 import MenuDrawer from "./components/MenuDrawer.vue"
 import {showDrawer} from "./components/menuMethods"
 
 export default {
   name: "LayoutDefault",
   components: {
-    LoginForm,
-    RegisterForm,
     MenuDrawer
   },
   setup() {
     const loginModel = ref(false);
     const registerModel = ref(false);
-    const userStore = useUserStore()
     const leftDrawerOpen = ref(false);
     const showDr = () =>{
       showDrawer(leftDrawerOpen)

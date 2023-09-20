@@ -26,15 +26,13 @@
 </template>
 
 <script>
-import {ref, provide} from "vue"
+import {ref} from "vue"
 import {instance} from "../plugins/axios.ts"
 import {useQuasar} from "quasar"
-import {useUserStore} from "../store/index"
 export default {
     name: "RegisterForm",
     setup () {
         const $q = useQuasar()
-        const userStore = useUserStore()
         const email = ref("")
         const name = ref("")
         const password = ref('')
@@ -67,7 +65,6 @@ export default {
                 const message = data.message
                 const status = data.status
                 if(status == "Success"){
-                    const token = data.data.access_token
                     $q.notify({
                         message: message,
                         color: 'green',

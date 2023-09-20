@@ -6,9 +6,11 @@ interface model {
 }
 
 export const showlogin = (loginModel:Ref<boolean>) => {
+    console.log(loginModel)
     loginModel.value = !loginModel.value;
 };
 export const showRegister = (registerModel:Ref<boolean>) => {
+    console.log(registerModel)
     registerModel.value = !registerModel.value;
 }
 export const showDrawer = (leftDrawer: Ref<boolean>) => {

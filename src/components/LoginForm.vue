@@ -56,7 +56,6 @@ export default {
                 const message = data.message
                 const status = data.status
                 if(status == "Success"){
-                    const token = data.data.access_token
                     data = data.data
                     const user = new User(data.name, data.user_type, data.email, data.access_token)
                     $q.notify({
