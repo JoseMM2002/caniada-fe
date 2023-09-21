@@ -14,24 +14,25 @@
     </q-header>
     <MenuDrawer/>
     <q-page-container>
-      <router-view>
+      <router-view class="full-height">
       </router-view>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import { ref, provide } from "vue";
+import { ref, provide, reactive } from "vue";
 import { useQuasar } from "quasar";
 import MenuDrawer from "./components/MenuDrawer.vue"
 import {showDrawer} from "./components/menuMethods"
-
+import {useChatStore} from "./store/index"
 export default {
   name: "LayoutDefault",
   components: {
     MenuDrawer
   },
   setup() {
+    const chatStore = useChatStore()
     const loginModel = ref(false);
     const registerModel = ref(false);
     const leftDrawerOpen = ref(false);
@@ -41,6 +42,11 @@ export default {
     provide("app-drawer", leftDrawerOpen)
     const $q = useQuasar();
     $q.dark.set(false);
+    const onChat = reactive({
+        set: false,
+        algo: ""
+    })
+    chatStore.put_onChat(onChat)
     return {
       leftDrawerOpen,
       showDr,

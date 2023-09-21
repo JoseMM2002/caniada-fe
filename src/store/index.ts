@@ -25,7 +25,6 @@ export const useUserStore = defineStore('token', {
         const message = data.message
         const status = data.status
         if(status == "Success"){
-          console.log(data)
           return true
         }
       } catch (error) {
@@ -61,5 +60,21 @@ export const useUserStore = defineStore('token', {
       localStorage.setItem("user_type", this.user.user_type)
       localStorage.setItem("name", this.user.name)
     }
+  },
+})
+
+export const useChatStore = defineStore('chat', {
+  state: () => ({onChat: {}, info: {}}),
+  getters: {
+    get_onChat: (state) => state.onChat,
+    get_info: (state) => state.info,
+  },
+  actions: {
+    put_onChat(onChat:object){
+      this.onChat = onChat
+    },
+    put_info(info:object){
+      this.info = info
+    },
   },
 })

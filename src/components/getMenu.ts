@@ -1,5 +1,5 @@
 import { useUserStore } from "@/store"
-import { markRaw, Ref } from "vue"
+import { inject, markRaw, provide, Ref } from "vue"
 import {showlogin, showRegister, logout} from "./menuMethods"
 import LoginFormVue from "./LoginForm.vue"
 import RegisterFormVue from "./RegisterForm.vue"
@@ -19,6 +19,19 @@ const todos = [
         method: () => router.push("/notificaciones"),
         icon: "notifications",
         label: "Notificaciones",
+        component: null
+    },
+    {
+        id:4,
+        method: (item:{set:boolean}) => {
+            router.push("/mensajes")
+            console.log(item)
+            if (item.set !== undefined) {
+                item.set = false;
+            }
+        },
+        icon: "message",
+        label: "Mensajes",
         component: null
     }
     

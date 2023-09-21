@@ -1,16 +1,18 @@
 <template>
     <div class="q-pa-lg notifications-section">
-        <q-card bordered flat rounded v-for="item in notificationsList" clickable @click="item.method" :key="item.id" class="full-width q-ma-md click-card">
-            <q-card-section>
-                <div class="text-h6">{{item.asunto}}</div>
-            </q-card-section>
+        <div class="full-width">
+            <q-card bordered flat round v-for="item in notificationsList" clickable @click="item.method" :key="item.id" class="full-width q-ma-md click-card" v-ripple>
+                <q-card-section>
+                    <div class="text-h6">{{item.asunto}}</div>
+                </q-card-section>
 
-            <q-separator inset />
+                <q-separator inset />
 
-            <q-card-section>
-                <div class="text-subtitle2">{{item.descripcion}}</div>
-            </q-card-section>
-        </q-card>
+                <q-card-section>
+                    <div class="text-subtitle2">{{item.descripcion}}</div>
+                </q-card-section>
+            </q-card>
+        </div>
     </div>
 </template>
 
@@ -52,7 +54,7 @@ export default {
 }
 .notifications-section{
     position: relative;
-    animation: fromBottom 1s ease forwards; 
+    animation: fromBottom 1.5s ease forwards; 
     opacity: 0;
 }
 @keyframes fromBottom {

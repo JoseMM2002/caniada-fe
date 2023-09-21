@@ -42,7 +42,6 @@ export default {
             return emailRegex.test(email);
         }
         const RegisterUser = async () => {
-            console.log(email.value,password.value)
             try {
                 const user = {
                     id:0,
@@ -52,7 +51,6 @@ export default {
                     user_type: ""
                 }
                 const miJSON = JSON.stringify(user);
-                console.log(miJSON)
                 const config = {
                     headers: {
                         "Content-Type": "application/json",

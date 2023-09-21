@@ -1,9 +1,7 @@
-import {Ref,ref,provide,inject} from "vue"
+import {Ref} from "vue"
 import { useUserStore } from "@/store"
 import {User} from "../store/index"
-interface model {
-    value: Ref<boolean>;
-}
+
 
 export const showlogin = (loginModel:Ref<boolean>) => {
     console.log(loginModel)

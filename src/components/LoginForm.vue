@@ -42,7 +42,6 @@ export default {
             return emailRegex.test(email);
         }
         const LoginUser = async () => {
-            console.log(email.value,password.value)
             try {
                 const response = await instance.get(
                     "/user/auth",{
